@@ -2,6 +2,7 @@ import sys
 import os
 import hashlib
 import glob
+import time
 
 def hashDir (dir):
     if os.path.isdir(dir): 
@@ -27,10 +28,19 @@ def hashDir (dir):
         return("Invalid directory. Please try again.")
 
 
+
+#MAIN PROGRAM
+
 if len(sys.argv) > 1:
     hash = -1
     dir = sys.argv[1]  # Get the directory path passed as an argument
-    print(hashDir(dir))
+    
+    for x in range(5):
+        print(hashDir(dir))
+        time.sleep(1)
+    
+    print("test")
+    
 else:
     print("Please input a directory.")
 
