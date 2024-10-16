@@ -4,6 +4,9 @@ import hashlib
 import glob
 import time
 
+
+#HASHING FUNCTION
+
 def hashDir (dir):
         files = glob.glob(os.path.join(dir, '*'))
 
