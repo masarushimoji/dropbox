@@ -4,6 +4,7 @@ import hashlib
 import glob
 
 if len(sys.argv) > 1:
+    hash = -1
     dir = sys.argv[1]  # Get the directory path passed as an argument
     if os.path.isdir(dir): 
         print(f"Valid directory passed: {dir}")
@@ -17,9 +18,10 @@ if len(sys.argv) > 1:
             print(file)   
             
         for file in files:
-            with open(file, 'rb') as f:
-                while chunk := f.read(8192):
-                    hashFunc.update(chunk)
+            if os.path.isfile(file):
+                with open(file, 'rb') as f:
+                    while chunk := f.read(8192):
+                        hashFunc.update(chunk)
                     
         print (hashFunc.hexdigest())
 
