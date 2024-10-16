@@ -3,6 +3,7 @@ import os
 import hashlib
 import glob
 import time
+import socket
 
 
 #HASHING FUNCTION

@@ -1,5 +1,6 @@
 import os
 import sys
+import socket
 
 if len(sys.argv) <= 1:
      print("Please input a directory.")
@@ -9,4 +10,5 @@ else:
         print("Please input a valid directory.")
     else:
         print("Inputted directory is valid!")
+
 
