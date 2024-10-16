@@ -8,4 +8,5 @@ else:
     if not(os.path.isdir(dir)): 
         print("Please input a vaslid directory.")
     else:
-        print("hurrah")
+        print("Inputed directory is valid!")
+        
