@@ -13,8 +13,8 @@ def hashDir (dir):
         hashFunc = hashlib.new('sha256')
 
 
-        for file in files:
-            print(file)   
+       # for file in files:
+        #    print(file)   
             
         for file in files:
             if os.path.isfile(file):
@@ -35,11 +35,16 @@ if len(sys.argv) > 1:
     hash = -1
     dir = sys.argv[1]  # Get the directory path passed as an argument
     
-    for x in range(5):
-        print(hashDir(dir))
+    while True:
+        currentHash = hashDir(dir)
+        if (hash == -1):
+            hash = currentHash
+        elif (hash != currentHash):
+            hash == currentHash
+            print("Hash Changed")
+        else:
+            print("files unchanged")
         time.sleep(1)
-    
-    print("test")
     
 else:
     print("Please input a directory.")
