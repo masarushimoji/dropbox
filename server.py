@@ -12,3 +12,20 @@ else:
         print("Inputted directory is valid!")
 
 
+
+        host = socket.gethostname()
+        port = 5000
+
+        serverSocket = socket.socket()
+        serverSocket.bind((host, port))
+
+        serverSocket.listen(2)
+        conn, address = serverSocket.accept()
+        print("Connection from: " + str(address))
+
+        while True:
+            data = conn.recv(1024).decode()
+            if not data:
+                break
+        print(str(data))
+
