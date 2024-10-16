@@ -17,7 +17,7 @@ if len(sys.argv) > 1:
             print(file)   
             
         for file in files:
-            with open(dir, 'rb') as f:
+            with open(file, 'rb') as f:
                 while chunk := f.read(8192):
                     hashFunc.update(chunk)
                     
