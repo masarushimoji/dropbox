@@ -10,8 +10,18 @@ if len(sys.argv) > 1:
 
         files = glob.glob(os.path.join(dir, '*'))
 
+        hashFunc = hashlib.new('sha256')
+
+
         for file in files:
-            print(file)        
+            print(file)   
+            
+        for file in files:
+            with open(dir, 'rb') as f:
+                while chunk := f.read(8192):
+                    hashFunc.update(chunk)
+                    
+        print (hashFunc.hexdigest())
 
     else:
         print("Invalid directory. Please try again.")
