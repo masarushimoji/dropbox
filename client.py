@@ -5,6 +5,8 @@ import glob
 import time
 import socket
 
+prevListLength = -1
+
 
 #HASHING FUNCTION
 
@@ -39,12 +41,20 @@ if len(sys.argv) > 1:
             currentHash = hashDir(dir)
             if (hash == -1):
                 hash = currentHash
+                prevList = len(glob.glob(os.path.join(dir, '*')))
             elif (hash != currentHash):
                 hash == currentHash
                 print("Hash Changed")
                 fileChanged = True
+                if (len(glob.glob(os.path.join(dir, '*'))) > prevListLength):
+                    print("file added")
+                elif (len(glob.glob(os.path.join(dir, '*'))) < prevListLength):
+                    print("file removed")
+                else:
+                    print("file changed")
             else:
                 print("Files unchanged.")
+            prevListLength = len(glob.glob(os.path.join(dir, '*')))
             time.sleep(1)
 
 
